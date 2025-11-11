@@ -1,182 +1,237 @@
-# JuanPabloCaterianoJusto.github.io
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juan Pablo Cateriano Justo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio personal de Juan Pablo Cateriano">
+  <title>Juan Pablo Cateriano</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: "Poppins", sans-serif;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: #0f172a; /* azul oscuro base */
-      color: #e2e8f0; /* texto claro */
+      background-color: #0f172a;
+      color: #f8fafc;
       line-height: 1.6;
-      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     header {
-      background: linear-gradient(90deg, #0ea5e9, #06b6d4);
-      text-align: center;
-      padding: 3rem 1rem;
-      box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+      background-color: #1e293b;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     header h1 {
-      font-size: 2.8rem;
-      color: #f8fafc;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      color: #38bdf8;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #cffafe;
-      opacity: 0.9;
+    nav a {
+      color: #f1f5f9;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
     }
 
     section {
-      padding: 2.5rem 1.5rem;
-      max-width: 950px;
+      padding: 4rem 2rem;
+      max-width: 1000px;
       margin: auto;
     }
 
-    h2 {
-      border-left: 5px solid #22d3ee;
-      padding-left: 10px;
-      margin-bottom: 1rem;
-      font-size: 1.6rem;
-      color: #67e8f9;
-    }
-
-    .bio p {
-      margin-bottom: 1rem;
-    }
-
-    .datos ul {
-      list-style: none;
-    }
-
-    .datos li {
-      margin-bottom: 0.5rem;
-    }
-
-    .intereses, .habilidades {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .card {
-      background: #1e293b;
-      border-radius: 14px;
-      padding: 1.2rem;
+    .hero {
       text-align: center;
-      box-shadow: 0 0 10px rgba(34, 211, 238, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding-top: 5rem;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+    .hero img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #38bdf8;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #38bdf8;
+      color: #0f172a;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0ea5e9;
+    }
+
+    .gustos-lista {
+      margin-top: 1.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .gustos-lista li {
+      background-color: #1e293b;
+      margin-bottom: 0.8rem;
+      padding: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gustos-lista li:hover {
+      transform: translateX(8px);
+    }
+
+    .contactos-lista {
+      list-style: none;
+      margin-top: 1rem;
+      padding: 0;
+    }
+
+    .contactos-lista li {
+      background-color: #1e293b;
+      margin-bottom: 0.8rem;
+      padding: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .contactos-lista li:hover {
+      transform: translateX(8px);
+    }
+
+    .contactos-lista a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contactos-lista a:hover {
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
-      padding: 1.5rem;
-      background: #1e293b;
+      padding: 2rem;
+      background-color: #1e293b;
       color: #94a3b8;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
     }
 
-    a {
-      color: #22d3ee;
+    footer a {
+      color: #38bdf8;
       text-decoration: none;
-      transition: color 0.2s ease;
     }
 
-    a:hover {
-      color: #67e8f9;
+    footer a:hover {
+      text-decoration: underline;
     }
 
-    /* Pequeña animación en el título */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    header h1, header p {
-      animation: fadeIn 1s ease forwards;
-    }
-
-    /* Sutil efecto de resplandor al pasar por títulos */
-    h2:hover {
-      text-shadow: 0 0 10px #22d3ee;
-      transition: 0.3s;
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Juan Pablo Cateriano Justo</h1>
-    <p>Desarrollador en formación • Curioso • Creativo</p>
+    <h1>Juan Pablo Cateriano</h1>
+    <nav>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#gustos">Mis gustos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#red">Red de contactos</a>
+    </nav>
   </header>
 
-  <section class="bio">
+  <section class="hero">
+    <img src="perfil.jpg" alt="Foto de Juan Pablo Cateriano">
+    <h2>¡Hola! Soy Juan Pablo Cateriano 👋</h2>
+    <p>Apasionado por la programación, el arte, la creatividad y el aprendizaje constante.</p>
+  </section>
+
+  <section id="sobre-mi">
     <h2>Sobre mí</h2>
     <p>
-      Soy Juan Pablo Cateriano Justo, un joven apasionado por la tecnología, la lógica y el diseño de experiencias interactivas. 
-      Me encanta aprender, crear y explorar ideas nuevas que combinen creatividad, precisión y técnicismos.
-    </p>
-    <p>
-      Mi objetivo es seguir creciendo como desarrollador, y construir proyectos que conecten emoción, arte y código.
+      Soy una persona curiosa y reflexiva, me gusta entender cómo funcionan las cosas
+      y darles un toque propio. Disfruto combinar lo técnico con lo emocional, ya sea
+      programando, escribiendo o creando ideas nuevas.
     </p>
   </section>
 
-  <section class="datos">
-    <h2>Datos generales</h2>
-    <ul>
-      <li><strong>Nombre completo:</strong> Juan Pablo Cateriano Justo</li>
-      <li><strong>Nacionalidad:</strong> Peruano 🇵🇪</li>
-      <li><strong>Edad:</strong> 18 años (aprox.)</li>
-      <li><strong>Idiomas:</strong> Español (nativo), Inglés (intermedio)</li>
-      <li><strong>Intereses:</strong> Programación, videojuegos, música, filosofía y escritura creativa</li>
+  <section id="gustos">
+    <h2>Mis gustos</h2>
+    <ul class="gustos-lista">
+      <li>🎮 Crear juegos 2D con estética tipo *pixel art* (inspirado en Hollow Knight o Katana Zero).</li>
+      <li>📚 Analizar historias con profundidad psicológica y simbolismo, como *Omori* o *Dentro del bosque*.</li>
+      <li>💻 Aprender sobre programación, inteligencia artificial y diseño de sistemas.</li>
+      <li>🎧 Escuchar música mientras trabajo, especialmente bandas sonoras y lo-fi.</li>
+      <li>✍️ Escribir relatos o artículos con un toque poético y filosófico.</li>
     </ul>
   </section>
 
-  <section>
-    <h2>Intereses</h2>
-    <div class="intereses">
-      <div class="card">🎮 Desarrollo de videojuegos (Godot, pixel art)</div>
-      <div class="card">🧠 Inteligencia Artificial y razonamiento lógico</div>
-      <div class="card">📚 Psicología, filosofía y narrativas complejas</div>
-      <div class="card">💻 Programación en Python y C++</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Habilidades</h2>
-    <div class="habilidades">
-      <div class="card">✅ Programación en Python</div>
-      <div class="card">✅ Conocimientos en C y C++</div>
-      <div class="card">✅ Diseño de juegos 2D con Godot</div>
-      <div class="card">✅ Resolución de problemas lógicos</div>
-      <div class="card">✅ Escritura narrativa y creatividad</div>
-    </div>
-  </section>
-
-  <section>
+  <section id="contacto">
     <h2>Contacto</h2>
-    <p>Puedes contactarme para colaboraciones o proyectos personales:</p>
-    <ul>
-      <li><strong>Email:</strong> juanpablo.cateriano@example.com</li>
-      <li><strong>GitHub:</strong> <a href="#">github.com/JuanPabloCateriano</a></li>
-      <li><strong>LinkedIn:</strong> <a href="#">https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav</li>
+    <p>¿Quieres charlar o colaborar en algo creativo?  
+       Puedes escribirme o seguirme en mis redes:</p>
+    <p>
+      <a href="https://github.com/juanpablocateriano" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/juan-pablo-cateriano-987b64385" target="_blank">LinkedIn</a> |
+      <a href="mailto:juanpablocateriano@gmail.com">Correo</a>
+    </p>
+  </section>
+
+  <section id="red">
+    <h2>Red de contactos</h2>
+    <p>Personas con las que aprendo, comparto ideas y colaboro:</p>
+    <ul class="contactos-lista">
+      <li><a href="https://linkedin.com/in/ecuadrosv" target="_blank">👨‍🏫 Prof. E. Cuadros</a></li>
+      <!-- Agrega aquí a tus compañeros cuando tengas sus enlaces -->
+      <!-- Ejemplo:
+      <li><a href="https://linkedin.com/in/nombre-de-compañero" target="_blank">💻 Nombre del compañero</a></li>
+      -->
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Juan Pablo Cateriano — “El código también puede ser arte.”</p>
+  </footer>
+</body>
+</html>
